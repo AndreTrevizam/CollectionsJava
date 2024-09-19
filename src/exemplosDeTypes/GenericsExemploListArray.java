@@ -1,7 +1,6 @@
 package exemplosDeTypes;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class GenericsExemploListArray {
     public static void main(String[] args) {
