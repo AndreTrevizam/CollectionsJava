@@ -10,7 +10,7 @@ public class Tarefa {
     //construtor
     public Tarefa(String descricao) {
         this.descricao = descricao;
-        this.concluida = concluida;
+        this.concluida = false;
     }
 
     //getters

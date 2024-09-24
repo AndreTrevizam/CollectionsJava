@@ -18,17 +18,31 @@ public class ListaTarefas {
 
     public void removerTarefa(String descricao) {
         Tarefa tarefaParaRemover = null;
-        for (Tarefa t : tarefaSet) {
-            if (t.getDescricao().equals(descricao)) {
-                tarefaParaRemover = t;
-                break;
+        if (!tarefaSet.isEmpty()) {
+            for (Tarefa t : tarefaSet) {
+                if (t.getDescricao().equals(descricao)) {
+                    tarefaParaRemover = t;
+                    break;
+                }
             }
+            tarefaSet.remove(tarefaParaRemover);
+        } else {
+            System.out.println("O conjunto está vázio.");
         }
-        tarefaSet.remove(tarefaParaRemover);
+
+        if (tarefaParaRemover == null) {
+            System.out.println("Tarefa não encontrada!");
+        }
+
     }
 
     public void exibirTarefas() {
-        System.out.println(tarefaSet);
+        if (!tarefaSet.isEmpty()) {
+            System.out.println(tarefaSet);
+        } else {
+            System.out.println("Tarefa não encontrada!");
+        }
+
     }
 
     public void marcarTarefaConcluida(String descricao) {
@@ -69,21 +83,25 @@ public class ListaTarefas {
         return tarefasConcluidas;
     }
 
-//    public void contarTarefas() {
-//        int contador = Integer.MIN_VALUE;
-//        for (Tarefa t : tarefaSet) {
-//            int tarefas = t.getDescricao()
-//        }
+    public int contarTarefas() {
+        return tarefaSet.size();
+    }
+
+    public void limparListaTarefas() {
+        if (tarefaSet.isEmpty()) {
+            System.out.println("O Set já está vázio!");
+        } else {
+            tarefaSet.clear();
+        }
+    }
 
     public static void main(String[] args) {
         ListaTarefas listaTarefas = new ListaTarefas();
 
-        listaTarefas.adicionarTarefa("Fazer bolo");
-        listaTarefas.marcarTarefaPendente("Fazer bolo");
-        listaTarefas.adicionarTarefa("Fazer amor");
-        listaTarefas.marcarTarefaPendente("Fazer amor");
-        System.out.println(listaTarefas.obterTarefasConcluidas());
-        System.out.println(listaTarefas.obterTarefasPendentes());
+        listaTarefas.adicionarTarefa("Tarefa 1");
+        listaTarefas.marcarTarefaConcluida("Tarefa 1");
+        listaTarefas.marcarTarefaPendente("Tarefa 1");
+        listaTarefas.exibirTarefas();
 
     }
 }
