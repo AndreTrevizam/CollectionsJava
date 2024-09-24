@@ -21,12 +21,8 @@ public class ConjuntoPalavrasUnicas {
         this.conjuntoPalavrasUnicas.remove(palavra);
     }
 
-    public String verificarPalavra(String palavra) {
-        if (this.conjuntoPalavrasUnicas.contains(palavra)) {
-            return "A palavra " + palavra + " existe no conjunto";
-        } else {
-            return "A palavra " + palavra + " não existe no conjunto";
-        }
+    public boolean verificarPalavra(String palavra) {
+        return conjuntoPalavrasUnicas.contains(palavra);
     }
 
     public void exibirPalavrasUnicas() {
