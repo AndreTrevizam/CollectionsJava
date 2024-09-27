@@ -23,7 +23,12 @@ public class Dicionario {
     }
 
     public void exibirPalavras() {
-        System.out.println(dicionarioMap);
+        if (!dicionarioMap.isEmpty()) {
+            System.out.println(dicionarioMap);
+        } else {
+            System.out.println("Dicionário vazio!");
+        }
+
     }
 
     public String pesquisarPorPalavra(String palavra) {
